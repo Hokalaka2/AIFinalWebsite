@@ -15,21 +15,45 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Middlebury Relationship Predictor</h1>
+        <h1>Middlebury Relationship <br/> Predictor</h1>
+        <p>AI Final Project by Otis Milliken and Quin McGaugh</p>
         <p>Using Decision Trees with Random Forrest to Predict Relationship Status</p>
-        <p class="view"><a href="https://github.com/Hokalaka2/AIFinalWebsite">View the Project on GitHub <small>orderedlist/minimal</small></a></p>
+        <p class="view"><a href="https://github.com/Hokalaka2/AIFinalWebsite">View the Project on GitHub </a></p>
         <ul>
-          <li><a href="https://github.com/orderedlist/minimal/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/orderedlist/minimal/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="http://github.com/orderedlist/minimal">Fork On <strong>GitHub</strong></a></li>
+          <li></li>
+          <li></li>
         </ul>
       </header>
       <section>
-        <h1>GitHub Flavored Markdown</h1>
+        <h1>Try Out Our Project</h1>
 
-        <p><em>View the <a href="http://github.github.com/github-flavored-markdown/sample_content.html">source of this content</a>.</em></p>
+        <p><em>View the <a href="https://docs.google.com/document/d/1tBR2TCfxEjODB6rnanns1hJPE4ViXXdfLoWQg86Gmlk/edit">project proposal</a>.</em></p>
 
-        <p>Let's get the whole "linebreak" thing out of the way. The next paragraph contains two phrases separated by a single newline character:</p>
+        <h2>Reasoning behind project</h2>
+
+        <p>While searching for a project topic, our group decided we wanted to walk away with something applicable to our average Middlebury student, but have some kind of impact beyond this project. We decided upon using a dataset created by former Sociology Professor Peggy Nelson for her research methods class up until 2020.</p>
+
+        <p>Our goal was to create a fun algorithm that can predict the relationship status of Middlebury Students based on their response to a series of non-academic, social questions about preferences and beliefs at Middlebury.</p>
+
+        <ol>
+          <li>
+            <p>Creating our decision tree</p>
+
+            <pre><code>
+              trainfeatures_dummy = pd.get_dummies(trainfeatures, columns = ['find_partner','gender','class','parents_married','race', 'housing', 'year']) <br/>
+              featuresarray = trainfeatures_dummy.to_numpy() <br/>
+              classifarray = trainclassification.to_numpy() <br/>
+
+              classifier = tree.DecisionTreeClassifier(min_samples_split = 50) <br/>
+              classifier.fit(featuresarray, classifarray)</code></pre>
+
+          </li>
+          <li>
+            <p>In Rails, you can do a shortcut:</p>
+
+            <pre><code>['a', 'b'].map(&amp;:uppercase)</code></pre>
+          </li>
+        </ol>
 
         <p>Roses are red<br>
         Violets are blue</p>
@@ -41,9 +65,8 @@
 
         <p>Oh, and one thing I cannot stand is the mangling of words with multiple underscores in them like perform_complicated_task or do_this_and_do_that_and_another_thing.</p>
 
-        <h2>A bit of the GitHub spice</h2>
+        <h2>Reasoning behind project</h2>
 
-        <p>In addition to the changes in the previous section, certain references are auto-linked:</p>
 
         <ul>
           <li>SHA: be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2</li>
