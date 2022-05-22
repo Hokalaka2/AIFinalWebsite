@@ -98,7 +98,20 @@
           <p>Random Forests are way to obtain greater accuracy with decision trees. In essence, it works by simulate a ton of decision trees and return the majority classification of the testing data among them. Each decision tree is trained on random data entries with replacement from the training set and with a random set of features. The idea is to have enough trees so that outlying data and features don't have too much of an influence on classification. There is some randomness in random forests so it might not classify data in the same way each time.<br/>We also use two different methods to create our decision trees: Gini and Entropy. </p>
           <p> Gini Index is calculated: 1 - &#931 p^2 </p>
           <p> Entropy is calculated:  - &#931 p * log(p) </p>
-          <p> It depends on the data set on which one works better. Entropy since it uses logs can take slightly longer </p>
+          <p> It depends on the data set on which one works better. We didn't find a huge difference between the two.</p>
+
+        <h2>Tree Parameters and Optimization</h2>
+          <p> The trees in our Random Forest can take in different parameters. These include Max Depth, Min Sample Split, Min Impurity Decrease. </p>
+          <dl>
+            <dt>Max Depth</dt>
+            <dd>This is the max depth of our tree. Having the largest tree is not always recommended because it can lead to overfitting. Which essentially means that data gets misclassified because to many splits occur.</dd>
+            <dt>Min Sample Split</dt>
+            <dd>This is the minimum number of times that the tree should split. This tackles underfitting of trees. Essentially, if a tree splits too little then it misclassify data because a lot of data is classified together</dd>
+            <dt>Min Impurity Decrease</dt>
+            <dd>The gini method uses an impurity calculation to decide which features to split on. The min impurity decrease decides if theres enough of an impurity to split</dd>
+          </dl>
+          <p>We created a find optimal method in our Random Forest class that attempts to find the best possible tuning parameters. The possible Max Depth options it tests are 2, 5, 8, 11, and None; the possible Mine Sample Split options it tests are 2, 5, 10, 20; lastly, the possible min impurity decreases that are tested are: 0 to 0.2 with an increment of .02</p>
+          <p>After aprox. 3 hours of running, we found that our optimal accuracy was 90.63% with a max depth of 8, a min sample split of 20, and a min impurity decrease of 0.0. This is much better than our lowest accuracy of 82.3%</p>
 
         <h2>Algorithm performance</h2>
           <table>
@@ -117,7 +130,7 @@
           </tr>
           </tbody>
           </table>
-
+        <h2>Our Project Conclusion </h2>
         <h2>Example Tree Renderings </h2>
         <img src="treerender5.png" alt="tree render">
         <img src="treerender7.png" alt="tree render">
