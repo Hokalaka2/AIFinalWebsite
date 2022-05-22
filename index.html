@@ -23,17 +23,16 @@
       </header>
       <section>
         <h1>Try Out Our Project</h1>
-
         <ol>
           <li>
             <p> To try out the project clone the <a href="https://docs.google.com/document/d/1tBR2TCfxEjODB6rnanns1hJPE4ViXXdfLoWQg86Gmlk/edit">repository</a> </p>
           </li>
           <li>
-            <p>Some libraries are required to run this project. Please run the following commands </p>
+            <p>Some libraries are required to run this project. Please run the following commands in your terminal</p>
             <pre><code>pip install sklearn <br/>pip install graphviz <br/>pip install numpy <br/>pip install pandas <br/>pip install matplotlib <br/>pip install tabulate</code></pre>
           </li>
           <li>
-            <p>The project can be run by python3 main.py whilst in the project folder. For a list of configurable options run<p>
+            <p>The project can be run by python3 main.py whilst in the project folder. For a list of configurable options (including forrest size, method, and test data) run<p>
             <pre><code>python3 main.py -h </code></pre>
           </p>
         </ol> 
@@ -44,20 +43,57 @@
 
         <p>While searching for a project topic, our group decided we wanted to walk away with something applicable to our average Middlebury student, but have some kind of impact beyond this project. We decided upon using a dataset created by former Sociology Professor Peggy Nelson for her research methods class up until 2020.</p>
 
-        <p>The dataset contains 987 responses which is about 35% of the current total student body. The dataset itself is a survey of Middlebury students that asks a variety of social questions from relationship status to GPA. </p>
+        <p>The dataset contains 987 responses which although is small compared to other dataset, it is quite large compared to the Middlebury student population of 2580. The dataset itself is a survey of Middlebury students that asks a variety of social questions from relationship status to GPA. </p>
+        <p>In addition to the data we got from the past survey, we also collected 60 responses as well from the current year that we could test our trees against as well.
 
         <p>Our goal was to create a fun algorithm that can predict the relationship status of Middlebury Students based on their response to a series of non-academic, social questions about preferences and beliefs at Middlebury.</p>
 
         <h2>Basic overview of how our code works</h2>
 
-        <ol>
-          <li>
-            <p>Creating our decision tree</p>
+        <p>Our code is split into 3 parts: the main class, the Decision tree class, and the Random Forrest class. <br/>
+        The Decision Tree class can build a tree, render a tree, and classify an observation based on a created tree</p>
 
-            <pre><code>trainfeatures_dummy = pd.get_dummies(trainfeatures, columns = ['find_partner','gender','class','parents_married','race', 'housing', 'year'])<br/>featuresarray = trainfeatures_dummy.to_numpy() <br/>classifarray = trainclassification.to_numpy()<br/>classifier = tree.DecisionTreeClassifier(min_samples_split = 50)<br/>classifier.fit(featuresarray, classifarray)</code></pre>
+        <ul>
+          <li>
+          <p> This is our Decision Tree Class </p>
+            <pre><code>
+            class DecisionTree: <br/> <br/>
+
+            def __init__(self, features, classification, method, id):<br/>
+                self.features = features<br/>
+                #print(features.to_markdown())<br/>
+                self.classification = classification<br/>
+                self.classifier = tree.DecisionTreeClassifier(criterion = method, min_samples_split = minSplit)<br/>
+                self.numfeatures = np.random.randint(2, 17)<br/>
+                self.featureslist = random.sample(range(17), self.numfeatures)<br/>
+                #print(self.featureslist)<br/>
+                self.usedfeatures = self.features.iloc[:, self.featureslist]<br/>
+                #print(self.usedfeatures.to_markdown())<br/>
+                self.id = id<br/><br/>
+
+            def buildTree(self):<br/>
+                if (self.id % 10 == 0):<br/>
+                    print("Building Tree #" + str(self.id))<br/><br/>
+             
+                self.featuresarray = self.usedfeatures.to_numpy()<br/>
+                self.classifarray = self.classification.to_numpy()<br/>
+                self.classifier.fit(self.featuresarray, self.classifarray)<br/><br/>
+
+            def renderTree(self):<br/>
+                tree.plot_tree(self.classifier)<br/>
+                dot_data = tree.export_graphviz(self.classifier, out_file=None)<br/>
+                graph = graphviz.Source(dot_data)<br/>
+                graph.render(str(self.id))<br/><br/>
+
+            def classifyTree(self, observation):<br/>
+                usedobs = observation.iloc[:, self.featureslist]<br/>
+                usedobsnp = usedobs.to_numpy()<br/>
+                prediction = self.classifier.predict(usedobsnp)<br/>
+                return prediction<br/>
+            </code></pre>
 
           </li>
-        </ol> 
+        </ul> 
 
         <h2>Bugs and difficulties</h2>
 
