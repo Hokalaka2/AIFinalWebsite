@@ -81,12 +81,12 @@
         <ul>
           <li>
           <p> This is our Decision Tree Class Methods</p>
-            <pre><code>class DecisionTree:<br/> <br/>#Constructor for Decision Tree method<br/>def __init__(self, features, classification, method, id)<br/>#Build tree method<br/>def buildTree(self) <br/>#Renders a tree using graphviz and matplotlib<br/>renderTree(self)<br/>def classifyTree(self, observation)
+            <pre><code>class DecisionTree:<br/> <br/>#Constructor for Decision Tree method<br/>def __init__(self, features, classification, method, id)<br/><br/>#Build tree method<br/>def buildTree(self) <br/><br/>#Renders a tree using graphviz and matplotlib<br/>renderTree(self)<br/><br/>#Classifies a new observation<br/>def classifyTree(self, observation)
             </code></pre>
           </li>
           <li>
           <p> This is our Random Forest Class Methods </p>
-            <pre><code>class RandomForest: </br><br/>#constructor for the Random Forest Method<br/>def __init__(self, numtrees, trainingfeat, trainingclass, method)<br/>#Builds the Random Forest using the train dataset<br/>def buildForest(self)<br/>#Classifies an observation using the Random Forest that we built previously<br/>def classfiyObservation(self, observation, method)<br/>#Tests the Accuracy of our model on the testing data<br/>def testAccuracy(self, testingfeat, testingclass)<br/>#Finds the optimal tuning parameters<br/>def findOptimal(forest, trainingfeat, trainingclass, splitmethod, testingfeat, testingclass)<br/>printAccuracy(self)
+            <pre><code>class RandomForest: </br><br/>#constructor for the Random Forest Method<br/>def __init__(self, numtrees, trainingfeat, trainingclass, method)<br/><br/>#Builds the Random Forest using the train dataset<br/>def buildForest(self)<br/>#Classifies an observation using the Random Forest that we built previously<br/>def classfiyObservation(self, observation, method)<br/><br/>#Tests the Accuracy of our model on the testing data<br/>def testAccuracy(self, testingfeat, testingclass)<br/><br/>#Finds the optimal tuning parameters<br/>def findOptimal(forest, trainingfeat, trainingclass, splitmethod, testingfeat, testingclass)<br/>printAccuracy(self)
             </code></pre>
           </li>
           <li>
