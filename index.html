@@ -56,40 +56,7 @@
         <ul>
           <li>
           <p> This is our Decision Tree Class </p>
-            <pre><code>
-            class DecisionTree: <br/> <br/>
-
-            def __init__(self, features, classification, method, id):<br/>
-                self.features = features<br/>
-                #print(features.to_markdown())<br/>
-                self.classification = classification<br/>
-                self.classifier = tree.DecisionTreeClassifier(criterion = method, min_samples_split = minSplit)<br/>
-                self.numfeatures = np.random.randint(2, 17)<br/>
-                self.featureslist = random.sample(range(17), self.numfeatures)<br/>
-                #print(self.featureslist)<br/>
-                self.usedfeatures = self.features.iloc[:, self.featureslist]<br/>
-                #print(self.usedfeatures.to_markdown())<br/>
-                self.id = id<br/><br/>
-
-            def buildTree(self):<br/>
-                if (self.id % 10 == 0):<br/>
-                    print("Building Tree #" + str(self.id))<br/><br/>
-             
-                self.featuresarray = self.usedfeatures.to_numpy()<br/>
-                self.classifarray = self.classification.to_numpy()<br/>
-                self.classifier.fit(self.featuresarray, self.classifarray)<br/><br/>
-
-            def renderTree(self):<br/>
-                tree.plot_tree(self.classifier)<br/>
-                dot_data = tree.export_graphviz(self.classifier, out_file=None)<br/>
-                graph = graphviz.Source(dot_data)<br/>
-                graph.render(str(self.id))<br/><br/>
-
-            def classifyTree(self, observation):<br/>
-                usedobs = observation.iloc[:, self.featureslist]<br/>
-                usedobsnp = usedobs.to_numpy()<br/>
-                prediction = self.classifier.predict(usedobsnp)<br/>
-                return prediction<br/>
+            <pre><code>class DecisionTree: <br/> <br/>def __init__(self, features, classification, method, id):<br/>self.features = features<br/>self.classification = classification<br/>self.classifier = tree.DecisionTreeClassifier(criterion = method, min_samples_split = minSplit)<br/>self.numfeatures = np.random.randint(2, 17)<br/>self.featureslist = random.sample(range(17), self.numfeatures)<br/>self.usedfeatures = self.features.iloc[:, self.featureslist]<br/>self.id = id<br/><br/>def buildTree(self):<br/>if (self.id % 10 == 0):<br/>print("Building Tree #" + str(self.id))<br/><br/>self.featuresarray = self.usedfeatures.to_numpy()<br/>self.classifarray = self.classification.to_numpy()<br/>self.classifier.fit(self.featuresarray, self.classifarray)<br/><br/>def renderTree(self):<br/>tree.plot_tree(self.classifier)<br/>dot_data = tree.export_graphviz(self.classifier, out_file=None)<br/>graph = graphviz.Source(dot_data)<br/>graph.render(str(self.id))<br/><br/>def classifyTree(self, observation):<br/>usedobs = observation.iloc[:, self.featureslist]<br/>usedobsnp = usedobs.to_numpy()<br/>prediction = self.classifier.predict(usedobsnp)<br/>return prediction<br/>
             </code></pre>
 
           </li>
