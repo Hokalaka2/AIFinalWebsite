@@ -118,16 +118,29 @@
           <table>
             <tbody>
           <tr>
-            <th>Method</th>
             <th>Number of Trees in Forest</th>
             <th>RunTime</th>
             <th>Accuracy</th>
           </tr>
           <tr>
-            <td>Gini</td>
+            <td>50</td>
+            <td>56 seconds</td>
+            <td>0.85937</td>
+          </tr>
+          <tr>
+            <td>100</td>
+            <td>117 seconds</td>
+            <td>0.84375</td>
+          </tr>
+          <tr>
+            <td>200</td>
+            <td>168 seconds</td>
+            <td>0.875</td>
+          </tr>
+          <tr>
             <td>300</td>
-            <td>Alot?</td>
-            <td>Alot?</td>
+            <td>312 seconds</td>
+            <td>0.89393</td>
           </tr>
           </tbody>
           </table>
@@ -135,7 +148,8 @@
           <p>Open Picture Below in New Tab to See Whole Tree</p>
           <img src="bigtree.png" alt="tree render">
           <p>The three questions which had the highest importance on a students relationship status were: looking for a relationship, looking for a hookup, and gpa. The first two were expected since a student wouldn’t often be looking for relationship if they were already in one; similarly, a student wouldn’t look for a hook up if they were in a relationship. GPA had unexpectedly high importance. Overall, people in relationships tended to have lower GPA’s, however, the high importance seems to also be because of scale nature GPA’s which allows it to split at a very specific point. Other interesting questions with relatively high importance were: siblings, being white, being a woman, and being satisfied with the amount of new people one meets at meet. In future studies, one could dive into these questions with greater depth and try to understand why they held such importance. <br/> <br/>
-          On the algorithm side, our optimal accuracy reached was 90.63% and had the parameters of a max depth of 8, a minimum sample split of 20, and a minimum impurity decrease of 0.0. This accuracy was significantly better than the lowest accuracy of 82.3%.
+          On the algorithm side, our optimal accuracy reached was 90.63% and had the parameters of a max depth of 8, a minimum sample split of 20, and a minimum impurity decrease of 0.0. This accuracy was significantly better than the lowest accuracy of 82.3%. <br/> <br/>
+          Interestingly enough, the accuracy plummeted with the use of our newly collected post-covid testing data. The accuracy went from 89.5% to 54.83%. Although some of this difference could be attributed to differences in student relationship, the stark decrease seems to indicate sampling differences and bias between the two testing data sets. More information would have to be gathered pre and post covid to confirm any suspicions about post-Covid relations.
           </p>
           <p class="view"><em>For the full list of question importance, additional info, and detailed analysis see our final paper on <a href="https://docs.google.com/document/d/1O1phRgtGrBLben_A7D-Lv9dGYZ7l5m8MHdMpZKAGLLM/edit?usp=sharing">Google Docs. </a></em></p>
 
